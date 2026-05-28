@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TK"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Конвертер величин" Height="320" Width="420" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок поля ввода -->
+        <TextBlock Text="Введите числовое значение:" Grid.Row="0" Margin="0,0,0,5" FontWeight="Bold"/>
+        <!-- Текстовое поле для ввода числа -->
+        <TextBox x:Name="txtInput" Grid.Row="1" Margin="0,0,0,10" Padding="6" VerticalContentAlignment="Center"/>
+
+        <!-- Заголовок выбора конвертации -->
+        <TextBlock Text="Выберите направление конвертации:" Grid.Row="2" Margin="0,0,0,5" FontWeight="Bold"/>
+        <!-- Выпадающий список с вариантами конвертации -->
+        <ComboBox x:Name="cmbConversionType" Grid.Row="3" Margin="0,0,0,10" SelectedIndex="0" Padding="6" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="Метры → Километры"/>
+            <ComboBoxItem Content="Километры → Метры"/>
+            <ComboBoxItem Content="Цельсий → Фаренгейт"/>
+            <ComboBoxItem Content="Фаренгейт → Цельсий"/>
+        </ComboBox>
+
+        <!-- Кнопка запуска расчета -->
+        <Button x:Name="btnConvert" Content="Конвертировать" Grid.Row="4" Click="btnConvert_Click" Margin="0,5,0,10" Padding="12,6" FontSize="14" HorizontalAlignment="Center" Width="150"/>
+
+        <!-- Поле вывода результата -->
+        <TextBlock x:Name="txtResult" Grid.Row="5" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkGreen" FontWeight="SemiBold"/>
     </Grid>
 </Window>
